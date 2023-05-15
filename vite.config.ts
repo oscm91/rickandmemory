@@ -6,7 +6,7 @@ import viteTsConfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   const isProduction = command === "build";
-  const base = isProduction ? "/rickmemory/" : "/";
+  const base = isProduction ? "/rickandmemory/" : "/";
 
   return {
     base,
@@ -45,6 +45,16 @@ export default defineConfig(({ command }) => {
       },
       environment: 'jsdom',
       include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    },
+
+    build: {
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
+      outDir: "dist/",
+      assetsDir: "",
+      emptyOutDir: true,
     },
   }
 });

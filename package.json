@@ -2,16 +2,19 @@
   "name": "rickandmemory",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "https://oscm91.github.io/rickandmemory",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
     "storybook": "nx run shared-ui:storybook",
-    "prestorybook": "nx run shared-ui:build-tailwind-css"
+    "prestorybook": "nx run shared-ui:build-tailwind-css",
+    "deploy": "nx build && gh-pages -d dist/rickandmemory"
   },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.0",
+    "gh-pages": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.11.1"
