@@ -61,6 +61,15 @@
         }
       }
     },
+    "build-tailwind-css": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx tailwindcss build -i ./tailwind.css -o src/main.css",
+        "cwd": "shared/ui",
+        "watch": true
+      }
+    },
     "static-storybook": {
       "executor": "@nx/web:file-server",
       "options": {
