@@ -10,7 +10,7 @@ interface CardProps {
   value: string;
 }
 
-const Card: React.FC<CardProps> = ({
+export const Card: React.FC<CardProps> = ({
   id,
   index,
   selected,
@@ -18,7 +18,14 @@ const Card: React.FC<CardProps> = ({
   image,
   value,
 }) => {
+  const baseClasses = "cursor-pointer w-full h-full transition ease-in delay-150 transform hover:translate-x-1 hexagons";
   const pointerEventsClass = selected ? "pointer-events-none" : "";
+  const bgColorClass =
+    selected && disabled
+      ? "bg-light-grey"
+      : selected && !disabled
+      ? "bg-orange"
+      : "";
 
   const isSelected = selected;
 

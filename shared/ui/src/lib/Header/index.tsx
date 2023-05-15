@@ -6,7 +6,7 @@ interface HeaderProps {
   
 }
 
-const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC<HeaderProps> = () => {
   return (
     <div className={styles['header']}>
       <img className={styles['header--image']} src={rickTitle} alt="" />
