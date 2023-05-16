@@ -7,11 +7,13 @@ export interface GridProps {
 }
 
 export function Grid(props: GridProps) {
+  const childrenArray = React.Children.toArray(props.children);
+
   return (
-    <div className={styles['grid']}>
-      {React.Children.map(props.children, (child) => {
+    <div className={styles['grid']} {...props}>
+      {childrenArray.map((child, i) => {
         if (React.isValidElement<React.HTMLAttributes<HTMLElement>>(child)) {
-          return <div className={styles['grid--item']}>{child}</div>;
+          return <div key={`grid-item-${i}`} className={styles['grid--item']}>{child}</div>;
         }
         return child;
       })}
