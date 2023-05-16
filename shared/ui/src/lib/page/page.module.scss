@@ -1,0 +1,43 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 36px 72px;
+    margin: 32px auto auto auto;
+
+    width: 1040px;
+    min-height: 1025px;
+
+    background: #FFFAC2;
+    border-radius: 16px 16px 0px 0px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+
+    &--header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &--main {
+        display: flex;
+        flex: auto;
+        width: 100%;
+        justify-content: left;
+        margin-top: 24px;
+    }
+
+    &--footer {
+        margin-top: 48px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
