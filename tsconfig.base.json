@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@rickandmemory/contexts": ["contexts/src/index.ts"],
+      "@rickandmemory/reducers": ["reducers/src/index.ts"],
       "@rickandmemory/shared/ui": ["shared/ui/src/index.ts"]
     }
   },

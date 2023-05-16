@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { useGameLogic, GameLogic } from './useGameLogic';
+import { useGameLogic, GameLogic } from './hooks/useGameState';
 
 export const PlayerStateContext = createContext<GameLogic | null>(null);
 
@@ -7,7 +7,7 @@ interface PlayerStateProviderProps {
   children: React.ReactNode;
 }
 
-function PlayerStateProvider(props: PlayerStateProviderProps) {
+export function PlayerStateProvider(props: PlayerStateProviderProps) {
   const gameLogic = useGameLogic();
 
   return (

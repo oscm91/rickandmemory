@@ -13,7 +13,7 @@ import {
   PlayerState,
   PlayerStateTypes,
   initialPlayerState,
-} from './gameReducer';
+} from '@rickandmemory/reducers';
 
 export type Grid = {
   [key: string]: {

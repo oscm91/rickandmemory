@@ -32,7 +32,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 // Define el hook personalizado
-const useRouteState = () => {
+export const useRouteState = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
 

@@ -1,8 +1,8 @@
 import { Header, Card, Page, Grid } from '@rickandmemory/shared/ui';
-import useRouteState from '../../useRouteState';
 import { useContext, useEffect } from 'react';
-import { PlayerStateContext } from '../../PlayerStateContext';
-import { GameLogic } from '../../useGameLogic';
+import { PlayerStateContext } from '@rickandmemory/contexts';
+import { useRouteState } from '@rickandmemory/contexts';
+import { GameLogic } from '@rickandmemory/contexts';
 
 function Play() {
   const { grid, gridKeys, playerState, handleClick, handleStart } = useContext(PlayerStateContext) as GameLogic;
