@@ -18,7 +18,7 @@ function Home() {
         <main>
           <Grid>
             {gridKeys.map((id, i) => {
-              const { image, value } = grid[id];
+              const { image, value, gender, name, species, status } = grid[id];
               
               return <Card
                 key={`card-${i}`}
@@ -28,6 +28,10 @@ function Home() {
                 index={0}
                 disabled={false}
                 value={value}
+                gender={gender}
+                name={name}
+                species={species}
+                status={status}
               ></Card>
             })}
           </Grid>

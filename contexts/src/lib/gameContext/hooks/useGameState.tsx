@@ -14,11 +14,17 @@ import {
   PlayerStateTypes,
   initialPlayerState,
 } from '@rickandmemory/reducers';
+import { Character, fetchCharacters } from './utils/fetchCharacters';
 
+// Defining types for the game grid and the game logic
 export type Grid = {
   [key: string]: {
     value: string;
     image: string;
+    gender: string;
+    name: string;
+    species: string;
+    status: string;
     selected: boolean;
     disabled: boolean;
   };
@@ -36,27 +42,31 @@ export type GameLogic = {
   selection: string[];
 };
 
+// Main hook that contains the game logic
 export const useGameLogic = (): GameLogic => {
+  // Initializing state variables
   const [grid, setGrid] = useState<Grid>({});
   const [gridKeys, setGridKeys] = useState<string[]>([]);
   const [selection, setSelection] = useState<string[]>([]);
   const [imagesArrSize, setImagessArrSize] = useState(0);
 
+  // Initializing reducer for player state
   const [playerState, playerDispatch] = useReducer(
     PlayerReducer,
     initialPlayerState
   );
 
-  // Set up a new game
+  // Function to set up a new game
   const setNewGame = () => {
     handleRestart();
   };
 
-  // Start the game
+  // Function to start the game
   const handleStart = () => {
     if (Object.keys(grid).length) {
       playerDispatch({ type: PlayerStateTypes.suffle });
 
+      // Shuffling the grid keys
       const suffleGridKeys = [...gridKeys];
 
       for (let i = suffleGridKeys.length - 1; i > 0; i--) {
@@ -71,14 +81,14 @@ export const useGameLogic = (): GameLogic => {
     }
   };
 
-  // Restart the game
+  // Function to restart the game
   const handleRestart = () => {
     setGridValues();
     playerDispatch({ type: PlayerStateTypes.resetGame });
     gridTimeout();
   };
 
-  // Get images path
+  // Function to fetch images from an API
   const fetchImages = async () => {
     const ids = new Set<number>();
     while (ids.size < 6) {
@@ -86,9 +96,14 @@ export const useGameLogic = (): GameLogic => {
     }
 
     try {
-      return Array.from(ids).map((id) => ({
-        image: `https://rickandmortyapi.com/api/character/avatar/${id}.jpeg`,
-        value: `Character ${id}`,
+      const characters = await fetchCharacters(Array.from(ids)) as Character[];
+      return characters.map((character) => ({
+        image: character.image,
+        value: character.id,
+        gender: character.gender,
+        name: character.name.trim().split(' ').slice(0, 2).join(' '),
+        species: character.species,
+        status: character.status,
       }));
     } catch (error) {
       console.error(error);
@@ -96,6 +111,7 @@ export const useGameLogic = (): GameLogic => {
     }
   };
   const setGridValues = useCallback(async () => {
+    // Fetching images from the API
     const images = await fetchImages();
     const grid: Grid = {};
 
@@ -104,12 +120,20 @@ export const useGameLogic = (): GameLogic => {
       grid[`grid-${i}`] = {
         value: images[i].value,
         image: images[i].image,
+        gender: images[i].gender,
+        name: images[i].name,
+        species: images[i].species,
+        status: images[i].status,
         selected: true,
         disabled: false,
       };
       grid[`grid-${i}-copy`] = {
         value: images[i].value,
         image: images[i].image,
+        gender: images[i].gender,
+        name: images[i].name,
+        species: images[i].species,
+        status: images[i].status,
         selected: true,
         disabled: false,
       };
@@ -123,7 +147,7 @@ export const useGameLogic = (): GameLogic => {
     setGridKeys(Object.keys(grid));
   }, []);
 
-  // Set grid timeout
+  // Function to set grid timeout
   const gridTimeout = useCallback(() => {
     let initialTimeout: ReturnType<typeof setTimeout>;
     for (let i = 0; i < imagesArrSize; i++) {
@@ -160,8 +184,9 @@ export const useGameLogic = (): GameLogic => {
     gridTimeout();
   }, [gridTimeout]);
 
-  // Handle click on grid
+  // Function to handle click on grid
   const handleClick = (ev: MouseEvent<HTMLDivElement>) => {
+    // Handling click on grid
     ev.stopPropagation();
     const id = (ev.currentTarget as HTMLDivElement).getAttribute('data-id');
 
@@ -234,6 +259,7 @@ export const useGameLogic = (): GameLogic => {
     });
   }, [grid, finished]);
 
+  // Returning the game logic
   return {
     grid,
     gridKeys,
