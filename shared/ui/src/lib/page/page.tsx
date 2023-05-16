@@ -18,6 +18,8 @@ export function Page(props: PageProps) {
               return React.cloneElement(child, { className: styles['page--main'] });
             case 'footer':
               return React.cloneElement(child, { className: styles['page--footer'] });
+            case 'output':
+              return React.cloneElement(child, { className: styles['page--output'] });
             default:
               return child;
           }

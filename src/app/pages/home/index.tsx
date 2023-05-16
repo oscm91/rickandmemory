@@ -5,11 +5,11 @@ function Home() {
       <>
         <Header></Header>
         <Page>
-          <header><h2>Personajes</h2><h2>Personajes</h2></header>
+          <header><h2>Personajes</h2></header>
           <main>
             <Grid>
-              {[...Array(12).keys()].map(() => (
-                <Card image='https://rickandmortyapi.com/api/character/avatar/1.jpeg' selected={true} id={''} index={0} disabled={false} value={''}></Card>
+              {[1,1,2,2,3,3,4,4,5,5,6,6].map((id) => (
+                <Card image={`https://rickandmortyapi.com/api/character/avatar/${id}.jpeg`} selected={true} id={''} index={0} disabled={false} value={''}></Card>
               ))}
             </Grid>
           </main>
