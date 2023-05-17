@@ -78,12 +78,14 @@ export const useGameLogic = (): GameLogic => {
   // Function to restart the game
   const handleRestart = () => {
     setGrid({});
-    setGridKeys([])
+    setGridKeys([]);
+    setImagesArrSize(0);
+    setSelection([]);
     setTimeout(() => {
       setGridValues();
       gridTimeout();
       playerDispatch({ type: PlayerStateTypes.resetGame });
-    })
+    }, 0);
   };
 
   // Function to fetch images from an API
@@ -179,8 +181,10 @@ export const useGameLogic = (): GameLogic => {
 
   // Effect to set grid timeout
   useEffect(() => {
-    gridTimeout();
-  }, [gridTimeout]);
+    if(playerState.suffle) {
+      gridTimeout();
+    }
+  }, [gridTimeout, playerState.suffle]);
 
   // Function to handle click on grid
   const handleClick = (ev: MouseEvent<HTMLDivElement>) => {
