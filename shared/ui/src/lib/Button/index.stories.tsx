@@ -10,6 +10,6 @@ export default Story;
 
 export const example = {
   args: {
-    label: 'Button',
+    children: 'Button',
   },
 };

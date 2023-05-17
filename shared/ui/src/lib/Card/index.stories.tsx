@@ -13,5 +13,8 @@ export const example = {
     image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
     selected: true,
     value: '0',
+    name: 'Rick',
+    species: 'Human',
+    status: 'Alive',
   },
 };
