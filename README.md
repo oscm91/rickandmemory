@@ -57,6 +57,8 @@ Tailwind CSS is used to define the design system of the application. It's a util
 
 Storybook is used for building the design system and for visual testing. It provides a sandbox to build UI components in isolation so you can develop hard-to-reach states and edge cases.
 
+![Storybook Panel](storybook.png)
+
 ## CSS Modules
 
 CSS Modules are used as a strategy to avoid class name collisions. With CSS Modules, a unique class name is generated when the CSS is transformed,
