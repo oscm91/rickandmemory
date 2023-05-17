@@ -1,57 +1,33 @@
 .button {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  @apply flex flex-row items-start;
   width: 240px;
   height: 53px;
 
   &--primary {
-    padding: 12px 80px;
-    gap: 8px;
-
-    background: #a2f2f9;
-    border-width: 0px 0px 4px 4px;
-    border-style: solid;
-    border-color: #d8e054;
-    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    @apply px-20 py-3 bg-lightblue border-b-4 border-l-4 border-yellow shadow-md rounded-lg;
 
     &:hover,
     &--hover {
-      background: #49d5e1;
-      border-color: #e6ec59;
+      @apply bg-turquoise border-green;
     }
 
     &:active,
     &--active {
-      background: #1a7a83;
-      border-color: #e6ec59;
-      color: #ffffff;
+      @apply bg-darkgreen border-green text-white;
     }
   }
 
   &--secondary {
-    padding: 12px 80px;
-    gap: 8px;
-
-    background: #d8e054;
-    border-width: 0px 0px 4px 4px;
-    border-style: solid;
-    border-color: #a2f2f9;
-    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    @apply px-20 py-3 bg-yellow border-b-4 border-l-4 border-lightblue shadow-md rounded-lg;
 
     &:hover,
     &--hover {
-      background: #b1b83b;
-      border-color: #a2f2f9;
+      @apply bg-darkyellow border-lightblue;
     }
 
     &:active,
     &--active {
-      background: #73781c;
-      border-color: #a2f2f9;
-      color: #ffffff;
+      @apply bg-darkeryellow border-lightblue text-white;
     }
   }
 }

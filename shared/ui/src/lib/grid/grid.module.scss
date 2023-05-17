@@ -1,11 +1,9 @@
 .grid {
   display: grid;
+  @apply gap-4;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 16px;
 
   &--item {
-    height: fit-content;
-    padding: 0px;
-    margin: 0px;
+    @apply h-auto p-0 m-0;
   }
 }
