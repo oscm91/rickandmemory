@@ -1,5 +1,5 @@
 import { test } from 'vitest';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { render, screen } from '@testing-library/react';
 import { PlayerStateContext, PlayerStateProvider } from './gameContext';
 import { useContext } from 'react';

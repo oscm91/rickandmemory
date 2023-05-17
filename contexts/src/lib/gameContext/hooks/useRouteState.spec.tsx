@@ -1,5 +1,5 @@
 import { test } from 'vitest';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { useRouteState } from './useRouteState';
 
