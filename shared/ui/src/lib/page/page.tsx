@@ -17,7 +17,9 @@ export function Page({ children }: PageProps) {
         // For each child, if it is a valid React element, clone it and add a class to it
         if (React.isValidElement<React.HTMLAttributes<HTMLElement>>(child)) {
           // Determine the class based on the type of the child
-          const className = ['header', 'main', 'footer', 'output'].includes(child.type as string)
+          const className = ['header', 'main', 'footer', 'output'].includes(
+            child.type as string
+          )
             ? styles[`page--${child.type}`]
             : undefined;
 

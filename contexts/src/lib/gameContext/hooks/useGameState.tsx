@@ -96,7 +96,9 @@ export const useGameLogic = (): GameLogic => {
     }
 
     try {
-      const characters = await fetchCharacters(Array.from(ids)) as Character[];
+      const characters = (await fetchCharacters(
+        Array.from(ids)
+      )) as Character[];
       return characters.map((character) => ({
         image: character.image,
         value: character.id,
@@ -147,8 +149,8 @@ export const useGameLogic = (): GameLogic => {
     setGridKeys(Object.keys(grid));
   }, []);
 
-   // Function to set grid timeout
-   const gridTimeout = useCallback(() => {
+  // Function to set grid timeout
+  const gridTimeout = useCallback(() => {
     const initialTimeout: ReturnType<typeof setTimeout>[] = [];
     for (let i = 0; i < imagesArrSize; i++) {
       initialTimeout[i] = setTimeout(
@@ -163,7 +165,7 @@ export const useGameLogic = (): GameLogic => {
               },
             };
           }),
-      3000
+        3000
       );
     }
 
@@ -181,7 +183,7 @@ export const useGameLogic = (): GameLogic => {
 
   // Effect to set grid timeout
   useEffect(() => {
-    if(playerState.suffle) {
+    if (playerState.suffle) {
       gridTimeout();
     }
   }, [gridTimeout, playerState.suffle]);

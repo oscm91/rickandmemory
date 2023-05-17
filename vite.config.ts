@@ -5,30 +5,30 @@ import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
-  const isProduction = command === "build";
-  const base = isProduction ? "/rickandmemory/" : "/";
+  const isProduction = command === 'build';
+  const base = isProduction ? '/rickandmemory/' : '/';
 
   return {
     base,
     cacheDir: './node_modules/.vite/rickandmemory',
-  
+
     server: {
       port: 4200,
       host: 'localhost',
     },
-  
+
     preview: {
       port: 4300,
       host: 'localhost',
     },
-  
+
     plugins: [
       react(),
       viteTsConfigPaths({
         root: './',
       }),
     ],
-  
+
     // Uncomment this if you are using workers.
     // worker: {
     //  plugins: [
@@ -37,7 +37,7 @@ export default defineConfig(({ command }) => {
     //    }),
     //  ],
     // },
-  
+
     test: {
       globals: true,
       cache: {
@@ -49,12 +49,12 @@ export default defineConfig(({ command }) => {
 
     build: {
       modulePreload: false,
-      target: "esnext",
+      target: 'esnext',
       minify: false,
       cssCodeSplit: false,
-      outDir: "dist/",
-      assetsDir: "",
+      outDir: 'dist/',
+      assetsDir: '',
       emptyOutDir: true,
     },
-  }
+  };
 });

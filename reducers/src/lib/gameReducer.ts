@@ -51,7 +51,7 @@ export const PlayerReducer = (state: PlayerState, action: PlayerActions) => {
       // If the action is "completed", set "completed" to the payload of the action
       return {
         ...state,
-        completed: action.completedPayload
+        completed: action.completedPayload,
       };
     }
 

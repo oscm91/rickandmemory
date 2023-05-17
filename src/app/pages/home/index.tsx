@@ -23,29 +23,34 @@ function Home() {
           <Grid>
             {gridKeys.map((id, i) => {
               const { image, value, gender, name, species, status } = grid[id];
-              
+
               // For each grid key, rendering a Card component with the corresponding data
-              return <Card
-                key={`card-${i}`}
-                image={image}
-                selected={true}
-                id={id}
-                index={i}
-                disabled={false}
-                value={value}
-                gender={gender}
-                name={name}
-                species={species}
-                status={status}
-              ></Card>
+              return (
+                <Card
+                  key={`card-${i}`}
+                  image={image}
+                  selected={true}
+                  id={id}
+                  index={i}
+                  disabled={false}
+                  value={value}
+                  gender={gender}
+                  name={name}
+                  species={species}
+                  status={status}
+                ></Card>
+              );
             })}
           </Grid>
         </main>
         <footer>
-          <Button variant={'primary'} onClick={() => {
-            // When the button is clicked, navigate to the play page and set up a new game
-            goToPlay();
-          }}>
+          <Button
+            variant={'primary'}
+            onClick={() => {
+              // When the button is clicked, navigate to the play page and set up a new game
+              goToPlay();
+            }}
+          >
             Jugar
           </Button>
         </footer>

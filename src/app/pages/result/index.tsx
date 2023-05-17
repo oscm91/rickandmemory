@@ -8,7 +8,9 @@ import { GameLogic } from '@rickandmemory/contexts';
 // Defining the Result component
 function Result() {
   // Using the useContext hook to get the game logic from the PlayerStateContext
-  const { playerState, handleRestart } = useContext(PlayerStateContext) as GameLogic;
+  const { playerState, handleRestart } = useContext(
+    PlayerStateContext
+  ) as GameLogic;
   // Using the useRouteState hook to get the navigation functions
   const { goToPlay, goToHome } = useRouteState();
 
@@ -17,7 +19,7 @@ function Result() {
 
   // Effect to set grid values
   useEffect(() => {
-    if(!playerState.completed) {
+    if (!playerState.completed) {
       goToPlay();
     }
   }, [goToPlay, playerState.completed]);
@@ -26,13 +28,13 @@ function Result() {
   const handleGameReplay = () => {
     handleRestart();
     goToPlay();
-  }
+  };
 
   // Defining a function to reset the game and go to the home page
   const handleGameReset = () => {
     handleRestart();
     goToHome();
-  }
+  };
 
   return (
     <>
@@ -42,13 +44,17 @@ function Result() {
           <h2>¡Felicitaciones!</h2>
           <p>Terminaste el juego con {totalTurns} turnos</p>
           <span>
-            <Button variant='primary' onClick={handleGameReplay}>Repetir</Button> 
-            <Button variant='primary' onClick={handleGameReset}>Inicio</Button>
+            <Button variant="primary" onClick={handleGameReplay}>
+              Repetir
+            </Button>
+            <Button variant="primary" onClick={handleGameReset}>
+              Inicio
+            </Button>
           </span>
         </output>
       </Page>
     </>
-  )
+  );
 }
-  
+
 export default Result;

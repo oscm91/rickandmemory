@@ -9,6 +9,5 @@ const Story: Meta<typeof Header> = {
 export default Story;
 
 export const example = {
-  args: {
-  },
+  args: {},
 };

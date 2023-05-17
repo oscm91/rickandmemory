@@ -4,7 +4,7 @@
   align-items: center;
   margin: auto;
   width: 100vw;
-  
+
   &--image {
     height: 180px;
     width: auto;
@@ -17,7 +17,7 @@
     padding: 8px 16px;
     gap: 8px;
 
-    background: #D8E054;
+    background: #d8e054;
     border-radius: 25px;
 
     font-family: 'Montserrat';
@@ -29,7 +29,5 @@
     color: #000000;
 
     pointer-events: none;
-
   }
 }
-  

@@ -14,20 +14,21 @@ export function Button(props: ButtonProps) {
   const { variant, status, children, ...otherProps } = props;
 
   // Determine the button type based on the variant prop
-  const buttonType = variant === 'secondary' ? 'button--secondary' : 'button--primary';
-  
+  const buttonType =
+    variant === 'secondary' ? 'button--secondary' : 'button--primary';
+
   // Determine the button status based on the status prop
-  const buttonStatus = status === 'active' ? '--active' : status === 'hover' ? '--hover' : '';
+  const buttonStatus =
+    status === 'active' ? '--active' : status === 'hover' ? '--hover' : '';
 
   // Construct the className using the buttonType and buttonStatus
-  const className = `${styles['button']} ${styles[buttonType]} ${styles[`${buttonType}${buttonStatus}`]}`;
+  const className = `${styles['button']} ${styles[buttonType]} ${
+    styles[`${buttonType}${buttonStatus}`]
+  }`;
 
   // Return a button element with the appropriate classes and props
   return (
-    <button
-      className={className}
-      {...otherProps}
-    >
+    <button className={className} {...otherProps}>
       {children}
     </button>
   );

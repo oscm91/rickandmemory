@@ -12,6 +12,6 @@ export const example = {
   args: {
     image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
     selected: true,
-    value: '0'
+    value: '0',
   },
 };

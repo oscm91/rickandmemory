@@ -10,7 +10,7 @@ const actions = {
 } as const;
 
 // Defining the type for an action
-type Action = { type: typeof actions[keyof typeof actions] };
+type Action = { type: (typeof actions)[keyof typeof actions] };
 
 // Defining the initial state
 interface State {
@@ -37,7 +37,7 @@ const reducer = (state: State, action: Action): State => {
 export const useRouteState = () => {
   // Using the useReducer hook to manage state
   const [state, dispatch] = useReducer(reducer, initialState);
-  
+
   // Using the useNavigate hook to navigate between routes
   const navigate = useNavigate();
 

@@ -9,13 +9,17 @@ export interface GridProps {
 }
 
 // Defining the Grid component
-export function Grid({children}: GridProps) {
+export function Grid({ children }: GridProps) {
   return (
     <div className={styles['grid']}>
       {React.Children.map(children, (child, i) => {
         // For each child, if it is a valid React element, wrap it in a div with the appropriate class
         if (React.isValidElement<React.HTMLAttributes<HTMLElement>>(child)) {
-          return <div key={`grid-item-${i}`} className={styles['grid--item']}>{child}</div>;
+          return (
+            <div key={`grid-item-${i}`} className={styles['grid--item']}>
+              {child}
+            </div>
+          );
         }
         // If the child is not a valid React element, just render it as is
         return child;

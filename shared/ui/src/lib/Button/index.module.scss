@@ -1,54 +1,57 @@
 .button {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 240px;
-    height: 53px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 240px;
+  height: 53px;
 
-    &--primary {
-        padding: 12px 80px;
-        gap: 8px;
-    
-        background: #A2F2F9;
-        border-width: 0px 0px 4px 4px;
-        border-style: solid;
-        border-color: #D8E054;
-        box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-  
-      &:hover, &--hover {
-        background: #49D5E1;
-        border-color: #E6EC59;
-      }
-  
-      &:active, &--active {
-        background: #1A7A83;
-        border-color: #E6EC59;
-        color: #FFFFFF;
-      }
+  &--primary {
+    padding: 12px 80px;
+    gap: 8px;
+
+    background: #a2f2f9;
+    border-width: 0px 0px 4px 4px;
+    border-style: solid;
+    border-color: #d8e054;
+    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    &:hover,
+    &--hover {
+      background: #49d5e1;
+      border-color: #e6ec59;
     }
-  
-    &--secondary {
-        padding: 12px 80px;
-        gap: 8px;
-        
-        background: #D8E054;
-        border-width: 0px 0px 4px 4px;
-        border-style: solid;
-        border-color: #A2F2F9;
-        box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-  
-      &:hover, &--hover {
-        background: #B1B83B;
-        border-color: #A2F2F9;
-      }
-  
-      &:active, &--active {
-        background: #73781C;
-        border-color: #A2F2F9;
-        color: #FFFFFF;
-      }
+
+    &:active,
+    &--active {
+      background: #1a7a83;
+      border-color: #e6ec59;
+      color: #ffffff;
     }
   }
-  
+
+  &--secondary {
+    padding: 12px 80px;
+    gap: 8px;
+
+    background: #d8e054;
+    border-width: 0px 0px 4px 4px;
+    border-style: solid;
+    border-color: #a2f2f9;
+    box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    &:hover,
+    &--hover {
+      background: #b1b83b;
+      border-color: #a2f2f9;
+    }
+
+    &:active,
+    &--active {
+      background: #73781c;
+      border-color: #a2f2f9;
+      color: #ffffff;
+    }
+  }
+}
