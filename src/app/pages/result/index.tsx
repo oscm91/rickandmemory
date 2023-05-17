@@ -47,7 +47,7 @@ function Result() {
             <Button variant="primary" onClick={handleGameReplay}>
               Repetir
             </Button>
-            <Button variant="primary" onClick={handleGameReset}>
+            <Button variant="secondary" onClick={handleGameReset}>
               Inicio
             </Button>
           </span>
