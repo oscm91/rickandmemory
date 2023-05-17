@@ -15,7 +15,7 @@
 
   transform: scale(1);
   transform-style: preserve-3d;
-  transition: transform 0.5s;
+  transition: transform 1s;
   transform: rotateY(180deg);
   opacity: 1;
 
@@ -25,7 +25,7 @@
 
   &--disabled { 
     opacity: 0;
-    transition: all 0.2s;
+    transition: all 1s;
   }
 
   &--image {
@@ -61,7 +61,7 @@
 
   &--active {
     transform: scale(1);
-    transition: all 0.2s;
+    transition: all 1s;
     background-color: #FFFFFF;
   }
 
@@ -71,7 +71,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50%) rotateY(180deg) ;
-    transition: transform 0.2s;
+    transition: transform 1s;
 
     &--active {
       display: none;

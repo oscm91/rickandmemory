@@ -38,7 +38,6 @@ export type GameLogic = {
   handleClick: (ev: MouseEvent<HTMLDivElement>) => void;
   handleStart: () => void;
   handleRestart: () => void;
-  setNewGame: () => void;
   selection: string[];
 };
 
@@ -48,7 +47,7 @@ export const useGameLogic = (): GameLogic => {
   const [grid, setGrid] = useState<Grid>({});
   const [gridKeys, setGridKeys] = useState<string[]>([]);
   const [selection, setSelection] = useState<string[]>([]);
-  const [imagesArrSize, setImagessArrSize] = useState(0);
+  const [imagesArrSize, setImagesArrSize] = useState(0);
 
   // Initializing reducer for player state
   const [playerState, playerDispatch] = useReducer(
@@ -56,14 +55,9 @@ export const useGameLogic = (): GameLogic => {
     initialPlayerState
   );
 
-  // Function to set up a new game
-  const setNewGame = () => {
-    handleRestart();
-  };
-
   // Function to start the game
   const handleStart = () => {
-    if (Object.keys(grid).length) {
+    if (imagesArrSize) {
       playerDispatch({ type: PlayerStateTypes.suffle });
 
       // Shuffling the grid keys
@@ -83,9 +77,11 @@ export const useGameLogic = (): GameLogic => {
 
   // Function to restart the game
   const handleRestart = () => {
+    setGrid({});
+    setGridKeys([])
     setGridValues();
-    playerDispatch({ type: PlayerStateTypes.resetGame });
     gridTimeout();
+    playerDispatch({ type: PlayerStateTypes.resetGame });
   };
 
   // Function to fetch images from an API
@@ -140,18 +136,18 @@ export const useGameLogic = (): GameLogic => {
     }
 
     // Set icons array size
-    setImagessArrSize(Object.keys(images).length);
+    setImagesArrSize(Object.keys(images).length);
 
     // Set grid state
     setGrid(grid);
     setGridKeys(Object.keys(grid));
   }, []);
 
-  // Function to set grid timeout
-  const gridTimeout = useCallback(() => {
-    let initialTimeout: ReturnType<typeof setTimeout>;
+   // Function to set grid timeout
+   const gridTimeout = useCallback(() => {
+    const initialTimeout: ReturnType<typeof setTimeout>[] = [];
     for (let i = 0; i < imagesArrSize; i++) {
-      initialTimeout = setTimeout(
+      initialTimeout[i] = setTimeout(
         () =>
           setGrid((grid) => {
             return {
@@ -163,11 +159,11 @@ export const useGameLogic = (): GameLogic => {
               },
             };
           }),
-        2000
+        10000
       );
     }
 
-    return () => clearTimeout(initialTimeout);
+    return () => initialTimeout.forEach((timeout) => clearTimeout(timeout));
   }, [imagesArrSize]);
 
   // Effect to set grid values
@@ -268,7 +264,6 @@ export const useGameLogic = (): GameLogic => {
     handleClick,
     handleStart,
     handleRestart,
-    setNewGame,
     selection,
   };
 };
