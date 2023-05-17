@@ -3,14 +3,14 @@ import { Header, Card, Page, Grid } from '@rickandmemory/shared/ui';
 import { useContext, useEffect } from 'react';
 import { PlayerStateContext } from '@rickandmemory/contexts';
 import { useRouteState } from '@rickandmemory/contexts';
-import { GameLogic } from '@rickandmemory/contexts';
+import { GameState } from '@rickandmemory/contexts';
 
 // Defining the Play component
 function Play() {
   // Using the useContext hook to get the game logic from the PlayerStateContext
   const { grid, gridKeys, playerState, handleClick, handleStart } = useContext(
     PlayerStateContext
-  ) as GameLogic;
+  ) as GameState;
   // Using the useRouteState hook to get the navigation functions
   const { goToResult } = useRouteState();
 

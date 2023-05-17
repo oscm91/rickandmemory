@@ -1,9 +1,9 @@
 // Importing necessary hooks and functions from React
 import { createContext } from 'react';
-import { useGameLogic, GameLogic } from './hooks/useGameState';
+import { useGameState, GameState } from './hooks/useGameState';
 
 // Creating a context for the game logic
-export const PlayerStateContext = createContext<GameLogic | null>(null);
+export const PlayerStateContext = createContext<GameState | null>(null);
 
 // Defining the props for the PlayerStateProvider component
 interface PlayerStateProviderProps {
@@ -12,12 +12,12 @@ interface PlayerStateProviderProps {
 
 // Defining the PlayerStateProvider component
 export function PlayerStateProvider(props: PlayerStateProviderProps) {
-  // Using the useGameLogic hook to get the game logic
-  const gameLogic = useGameLogic();
+  // Using the useGameState hook to get the game logic
+  const gameState = useGameState();
 
   // Returning a context provider with the game logic as the value
   return (
-    <PlayerStateContext.Provider value={gameLogic}>
+    <PlayerStateContext.Provider value={gameState}>
       {props.children}
     </PlayerStateContext.Provider>
   );

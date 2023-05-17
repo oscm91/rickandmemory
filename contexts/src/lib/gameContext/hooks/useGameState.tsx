@@ -30,7 +30,7 @@ export type Grid = {
   };
 };
 
-export type GameLogic = {
+export type GameState = {
   grid: Grid;
   gridKeys: string[];
   playerState: PlayerState;
@@ -42,7 +42,7 @@ export type GameLogic = {
 };
 
 // Main hook that contains the game logic
-export const useGameLogic = (): GameLogic => {
+export const useGameState = (): GameState => {
   // Initializing state variables
   const [grid, setGrid] = useState<Grid>({});
   const [gridKeys, setGridKeys] = useState<string[]>([]);

@@ -3,14 +3,14 @@ import { Header, Page, Button } from '@rickandmemory/shared/ui';
 import { useContext, useEffect } from 'react';
 import { PlayerStateContext } from '@rickandmemory/contexts';
 import { useRouteState } from '@rickandmemory/contexts';
-import { GameLogic } from '@rickandmemory/contexts';
+import { GameState } from '@rickandmemory/contexts';
 
 // Defining the Result component
 function Result() {
   // Using the useContext hook to get the game logic from the PlayerStateContext
   const { playerState, handleRestart } = useContext(
     PlayerStateContext
-  ) as GameLogic;
+  ) as GameState;
   // Using the useRouteState hook to get the navigation functions
   const { goToPlay, goToHome } = useRouteState();
 
