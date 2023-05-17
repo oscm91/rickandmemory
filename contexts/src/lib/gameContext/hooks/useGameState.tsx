@@ -159,7 +159,7 @@ export const useGameLogic = (): GameLogic => {
               },
             };
           }),
-        1000
+        10000
       );
     }
 
