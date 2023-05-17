@@ -79,9 +79,11 @@ export const useGameLogic = (): GameLogic => {
   const handleRestart = () => {
     setGrid({});
     setGridKeys([])
-    setGridValues();
-    gridTimeout();
-    playerDispatch({ type: PlayerStateTypes.resetGame });
+    setTimeout(() => {
+      setGridValues();
+      gridTimeout();
+      playerDispatch({ type: PlayerStateTypes.resetGame });
+    })
   };
 
   // Function to fetch images from an API
@@ -159,7 +161,7 @@ export const useGameLogic = (): GameLogic => {
               },
             };
           }),
-        10000
+      3000
       );
     }
 

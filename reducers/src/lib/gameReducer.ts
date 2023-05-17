@@ -57,7 +57,7 @@ export const PlayerReducer = (state: PlayerState, action: PlayerActions) => {
 
     case PlayerStateTypes.resetGame: {
       // If the action is "resetGame", reset the state to the initial state and set "suffle" to false
-      return { ...initialPlayerState, suffle: false };
+      return { ...initialPlayerState };
     }
 
     default: {

@@ -22,6 +22,12 @@ function Result() {
     }
   }, [goToPlay, playerState.completed]);
 
+  // Defining a function to reset the game and go to the play page
+  const handleGameReplay = () => {
+    handleRestart();
+    goToPlay();
+  }
+
   // Defining a function to reset the game and go to the home page
   const handleGameReset = () => {
     handleRestart();
@@ -36,7 +42,7 @@ function Result() {
           <h2>¡Felicitaciones!</h2>
           <p>Terminaste el juego con {totalTurns} turnos</p>
           <span>
-            <Button variant='primary' onClick={handleRestart}>Repetir</Button> 
+            <Button variant='primary' onClick={handleGameReplay}>Repetir</Button> 
             <Button variant='primary' onClick={handleGameReset}>Inicio</Button>
           </span>
         </output>
